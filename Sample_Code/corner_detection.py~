@@ -6,10 +6,14 @@
 
 import cv2
 import numpy as np
-
+import zbar
 
 filename = 'QR.jpg'
 img = cv2.imread(filename)
+
+scanner = zbar.ImageScanner()
+scanner.parse_config('enable')
+scanner.scan(img)
 gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 
 gray = np.float32(gray)
