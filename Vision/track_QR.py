@@ -1,8 +1,14 @@
+#Code used to identify a target, and roughly estimate the 3D and rotational coordinates of that target, in an attempt to build vision code for docking the vehicle
+
+#May be adapted for use in 'interesting thing' identification and tracking
+
 import cv2
 import pickle
 import numpy as np
 from math import pi, cos, sin, ceil
 
+
+#TODO: Identify Clusters of Objects, and Focus on Movement Velocities
 
 class QRTracker:
 
