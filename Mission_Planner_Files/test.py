@@ -35,12 +35,12 @@ while cs.alt < 1:
     Script.SendRC(1,2000,False) # roll    
     Script.SendRC(3,1400,True) # throttle 
 
-while cs.alt > 0.1:
+while cs.alt > 0.5:
     print 'Lowering'
     Script.Sleep(500) #Take a moment to stabilize
     Script.SendRC(3,1300,True)
 
-while cs.alt > 0.07: 
+while cs.alt > 0.1: 
     #Land
     print 'Landing'
     Script.Sleep(300)
