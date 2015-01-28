@@ -27,7 +27,7 @@ Script.SendRC(4,1500,True)
 print 'Motors Armed!'
 Script.SendRC(3,1700,True) 
 
-while cs.alt < 1:
+while cs.alt < 1: #Would probably want to change this to LiDAR measures in future
     #Get to altitude
     print 'Flying'
     Script.Sleep(50)  # Take measurements every 50ms
