@@ -38,7 +38,7 @@ while cs.alt < 1: #Would probably want to change this to LiDAR measures in futur
 while cs.alt > 0.3:
     print 'Lowering'
     Script.Sleep(500) #Take a moment to stabilize
-    Script.SendRC(3,1000,True)
+    Script.SendRC(3,1300,True)
 
 while cs.alt > 0.1: 
     #Land
