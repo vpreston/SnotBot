@@ -63,12 +63,12 @@ int main(int argc, char** argv)
         vector<DMatch> good_matches;
 
         for (int i = 0; i < descriptors1.rows; i++) {
-            if (matches[i].distance <= max(2*min_dist, 0.02)) {
+            if (matches[i].distance <= min(2*min_dist, 0.2)) {
                 good_matches.push_back(matches[i]);
             }
         }
 
-        if (min_dist < 0.15 && good_matches.size() < 50) { cout << "QR Detected: " << good_matches.size() << endl; }
+        if (good_matches.size() > 0) { cout << "QR Detected: " << good_matches.size() << endl; }
 
         // drawing the results
         namedWindow("matches", 1);
