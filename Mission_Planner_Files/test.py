@@ -27,7 +27,7 @@ Script.SendRC(4,1500,True)
 print 'Motors Armed!'
 Script.SendRC(3,1700,True) 
 
-while cs.alt < 1:
+while cs.alt < 1: #Would probably want to change this to LiDAR measures in future
     #Get to altitude
     print 'Flying'
     Script.Sleep(50)  # Take measurements every 50ms
@@ -35,7 +35,7 @@ while cs.alt < 1:
     Script.SendRC(1,2000,False) # roll    
     Script.SendRC(3,1400,True) # throttle 
 
-while cs.alt > 0.5:
+while cs.alt > 0.3:
     print 'Lowering'
     Script.Sleep(500) #Take a moment to stabilize
     Script.SendRC(3,1300,True)
@@ -43,7 +43,7 @@ while cs.alt > 0.5:
 while cs.alt > 0.1: 
     #Land
     print 'Landing'
-    Script.Sleep(300)
+    Script.Sleep(3000) #Needs to be a multiple of the WaitFor command
     Script.SendRC(3,1000,False) 
     Script.SendRC(4,1000,True)
     Script.WaitFor('DISARMING MOTORS', 3000)
