@@ -245,6 +245,11 @@ int main ( int argc, char **argv )
 				drawContours( image, contours, right , Scalar(0,0,255), 2, 8, hierarchy, 0 );
 				drawContours( image, contours, bottom , Scalar(255,0,100), 2, 8, hierarchy, 0 );
 
+				// Checks if the QR code is "close"
+				if (contours.size() < 100) {
+					cout << "Too close: " << contours.size() << endl;
+				}
+
 				// Insert Debug instructions here
 				if(DBG==1)
 				{
