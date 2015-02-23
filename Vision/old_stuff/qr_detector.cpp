@@ -61,14 +61,17 @@ int main(int argc, char** argv)
 
         // Keeps the "good matches," whose distances are less than 2*min_dist
         vector<DMatch> good_matches;
+        vector<Point2f> match_points;
 
         for (int i = 0; i < descriptors1.rows; i++) {
-            if (matches[i].distance <= max(2*min_dist, 0.02)) {
+            if (matches[i].distance <= min(2*min_dist, 0.2)) {
                 good_matches.push_back(matches[i]);
+                match_points.push_back(keypoints2[matches[i].queryIdx].pt);
             }
         }
 
-        if (min_dist < 0.15 && good_matches.size() < 50) { cout << "QR Detected: " << good_matches.size() << endl; }
+        // If there is at least one match, the QR code has been detected
+        // if (good_matches.size() > 0) { cout << "QR Detected: " << good_matches.size() << endl; }
 
         // drawing the results
         namedWindow("matches", 1);
